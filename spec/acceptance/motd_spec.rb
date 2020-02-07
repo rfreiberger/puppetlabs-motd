@@ -1,10 +1,10 @@
 require 'spec_helper_acceptance'
 
-motd_file = '/etc/motd'
+motd_file = '/Users/robert.freiberger/Dropbox/Scratch/02-07-20/motd'
 
-issue_file = '/etc/issue'
+issue_file = '/Users/robert.freiberger/Dropbox/Scratch/02-07-20/issue'
 
-issue_net_file = '/etc/issue.net'
+issue_net_file = '/Users/robert.freiberger/Dropbox/Scratch/02-07-20/issue.net'
 
 template_expected_content = 'Test Template for Rspec'
 
@@ -82,25 +82,25 @@ describe 'Message of the day' do
     end
   end
 
-  context 'when static message from content in /etc/issue' do
+  context 'when static message from content in testing path /etc/issue' do
     it do
       test_motd(pp_static_content_issue, "Hello world!\n", issue_file)
     end
   end
 
-  context 'when static message from template in /etc/issue' do
+  context 'when static message from template in testing path /etc/issue' do
     it do
       test_motd(pp_static_template_issue, template_expected_content, issue_file)
     end
   end
 
-  context 'when static message from content in /etc/issue.net' do
+  context 'when static message from content in testing path /etc/issue.net' do
     it do
       test_motd(pp_static_content_issue_net, "Hello world!\n", issue_net_file)
     end
   end
 
-  context 'when static message from template in /etc/issue.net' do
+  context 'when static message from template in testing path /etc/issue.net' do
     it do
       test_motd(pp_static_template_issue_net, template_expected_content, issue_net_file)
     end
